@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-dark font-sans m-0 p-0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    text-align: left;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-2.5 rounded-xl font-semibold
+           hover:bg-primary-600 active:scale-95 transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary border-2 border-primary px-6 py-2.5 rounded-xl
+           font-semibold hover:bg-primary-50 active:scale-95 transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-red-600 active:scale-95 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .input-field {
+    @apply w-full border border-gray-200 rounded-xl px-4 py-2.5 text-dark
+           focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary
+           placeholder:text-gray-400 transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Estilos para el mapa de Leaflet */
+.leaflet-container {
+  @apply rounded-2xl;
+  font-family: 'Poppins', sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-xl shadow-lg;
+  border-radius: 12px !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFBA66;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B00;
+}
+
+/* Animación shimmer para skeletons */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f5e6d3 25%, #edd5bc 50%, #f5e6d3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
